@@ -1,0 +1,1138 @@
+{
+	"info": {
+		"_postman_id": "f7a51e6f-03fd-46cb-97c1-4a7864848939",
+		"name": "CMUWorkFromHome Beta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authen",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"accessToken\" : \"fTj9pAjhHtDsAcSuRU0B7qWJRKE4dxd0\",\n\t\"email\" : \"gibson@gmail.com\",\n\t\"loginType\" : \"F\",\n\t\"profileName\" : \"g\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "LoginType : F=facebook , G=google"
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-WFH-SESSION",
+								"value": "{{session}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"wipawee_kemmak@cmu.ac.th\",\n\t\"accessToken\" : \"bAPKGVYgZKH0TV75kng4NZQEDM3Gj5fp\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "News",
+			"item": [
+				{
+					"name": "Feed News (ด้านบน)",
+					"item": [
+						{
+							"name": "add feed news",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-WFH-SESSION",
+										"type": "text",
+										"value": "{{session}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"newsType\" : \"FEED\",\n\t\"nameTH\" : \"โคโรนาไวรัส : ทำไมการเว้นระยะห่างทางสังคมจึงสกัดการระบาดของโรคได้\", \n\t\"nameEN\" : \"โคโรนาไวรัส : ทำไมการเว้นระยะห่างทางสังคมจึงสกัดการระบาดของโรคได้\",\n\t\"source\" : \"BBC ไทย\",\n\t\"startDate\" : \"2020-03-18 00:00:00\",\n\t\"endDate\" : \"2020-04-30 23:59:59\",\n\t\"disabled\" : \"0\",\n\t\"list\" : \"4\",\n\t\"descriptionTH\" : \"งานวิจัยที่ศึกษาการแพร่ระบาดของไวรัสโคโรนาในเมืองอู่ฮั่น ประเทศจีน พบว่า การอยู่บ้านและรักษาระยะห่างทางสังคมช่วยชะลอการแพร่ระบาดอย่างต่อเนื่องข้างต้นได้จริง โดยตัวเลขอัตราการติดเชื้อจาก 2.35 ลงลดจนเกือบถึง 1 นั่นหมายความว่า ผู้ป่วยหนึ่งคนแพร่เชื้อต่อให้คนเดียวเท่านั้นเอง ยิ่งใช้มาตรการนี้กับศูนย์กลางการระบาดได้เร็วเท่าไหร่ อัตราการแพร่เชื้อก็น้อยลงเท่านั้น\",\n\t\"descriptionEN\" : \"งานวิจัยที่ศึกษาการแพร่ระบาดของไวรัสโคโรนาในเมืองอู่ฮั่น ประเทศจีน พบว่า การอยู่บ้านและรักษาระยะห่างทางสังคมช่วยชะลอการแพร่ระบาดอย่างต่อเนื่องข้างต้นได้จริง โดยตัวเลขอัตราการติดเชื้อจาก 2.35 ลงลดจนเกือบถึง 1 นั่นหมายความว่า ผู้ป่วยหนึ่งคนแพร่เชื้อต่อให้คนเดียวเท่านั้นเอง ยิ่งใช้มาตรการนี้กับศูนย์กลางการระบาดได้เร็วเท่าไหร่ อัตราการแพร่เชื้อก็น้อยลงเท่านั้น\",\n\t\"coverImage\" : \"20200326/_111424403_6a620da2-009d-44bf-a0d9-1e68d7389508.jpg\",\n\t\"link\" : \"https://www.bbc.com/thai/international-52043102\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/news",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"news"
+									]
+								},
+								"description": "newsType : FEED = ข่าวเลื่อนๆ ด้านบน , FIX= ข่าวด้านล่าง"
+							},
+							"response": []
+						},
+						{
+							"name": "get feed news",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-WFH-SESSION",
+										"type": "text",
+										"value": "{{session}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/news?newsType=FEED&newsId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"news"
+									],
+									"query": [
+										{
+											"key": "newsType",
+											"value": "FEED"
+										},
+										{
+											"key": "newsId",
+											"value": null
+										}
+									]
+								},
+								"description": "newsType : FEED = ข่าวเลื่อนๆ ด้านบน , FIX= ข่าวด้านล่าง"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Fix News (ด้านล่าง)",
+					"item": [
+						{
+							"name": "add fix news",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-WFH-SESSION",
+										"value": "{{session}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"newsType\" : \"FIX\",\n\t\"nameTH\" : \"ข้อกำหนดหลัง พ.ร.ก. ฉุกเฉิน ปิดประเทศสำหรับคนต่างชาติ เดินทางข้ามจังหวัดเจอด่านตรวจ\", \n\t\"nameEN\" : \"ข้อกำหนดหลัง พ.ร.ก. ฉุกเฉิน ปิดประเทศสำหรับคนต่างชาติ เดินทางข้ามจังหวัดเจอด่านตรวจ\",\n\t\"source\" : \"THE STANDARD TEAM\",\n\t\"startDate\" : \"2020-03-17 00:00:00\",\n\t\"endDate\" : \"2020-04-30 23:59:59\",\n\t\"disabled\" : \"0\",\n\t\"list\" : \"2\",\n\t\"descriptionTH\" : \"\",\n\t\"descriptionEN\" : \"\",\n\t\"coverImage\" : \"20200326/WEB-INFO.jp\",\n\t\"link\" : \"https://thestandard.co/specifications-after-royal-decree-emergency/\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/news",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"news"
+									]
+								},
+								"description": "newsType : FEED = ข่าวเลื่อนๆ ด้านบน , FIX= ข่าวด้านล่าง"
+							},
+							"response": []
+						},
+						{
+							"name": "get fix news",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-WFH-SESSION",
+										"type": "text",
+										"value": "{{session}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/news?newsType=FIX&newsId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"news"
+									],
+									"query": [
+										{
+											"key": "newsType",
+											"value": "FIX"
+										},
+										{
+											"key": "newsId",
+											"value": null
+										}
+									]
+								},
+								"description": "newsType : FEED = ข่าวเลื่อนๆ ด้านบน , FIX= ข่าวด้านล่าง"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "add views",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"value": "{{session}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"newsId\" : \"3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/news/views",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news",
+								"views"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Upload",
+			"item": [
+				{
+					"name": "upload image news",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"value": "{{session}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fileData",
+									"type": "file",
+									"src": "/Users/wipaweekemmak/Pictures/_111424403_6a620da2-009d-44bf-a0d9-1e68d7389508.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/upload?type=news",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"upload"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "news"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload image profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fileData",
+									"type": "file",
+									"src": "/Users/wipaweekemmak/Pictures/sunday.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/upload?type=profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"upload"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "profile"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload image feedback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fileData",
+									"type": "file",
+									"src": "/Users/wipaweekemmak/Pictures/5cce41ecbd28f34a615ea379e8b96d2c.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/upload?type=feedback",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"upload"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "feedback"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "My Info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"value": "{{session}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/info/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"info",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Info by memberId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/info/11",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"info",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit My Info",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"displayname\" : \"teerapong\",\n\t\"image\" : \"sunday.jpg\",\n\t\"phone\" : \"0978883888\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/info/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"info",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "Period",
+					"item": [
+						{
+							"name": "get period",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-WFH-SESSION",
+										"type": "text",
+										"value": "{{session}}"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/period?periodId&limit=10&offset=0",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"period"
+									],
+									"query": [
+										{
+											"key": "periodId",
+											"value": null
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Feedback Category",
+					"item": [
+						{
+							"name": "add feedback category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-COVID-SESSION",
+										"type": "text",
+										"value": "{{session}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"nameTH\" : \"ข้อเสนอแนะ\",\n\t\"nameEN\" : \"Suggestion & Requirement\",\n\t\"list\" : \"2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/feedback/category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"feedback",
+										"category"
+									]
+								},
+								"description": "critical point (level) : 1-10"
+							},
+							"response": []
+						},
+						{
+							"name": "edit feedback category",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-COVID-SESSION",
+										"type": "text",
+										"value": "{{session}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"feedbackCateId\" : \"1\",\n\t\"nameTH\" : \"รายงานข้อผิดพลาด\",\n\t\"nameEN\" : \"Bug & Report\",\n\t\"list\" : \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/feedback/category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"feedback",
+										"category"
+									]
+								},
+								"description": "critical point (level) : 1-10"
+							},
+							"response": []
+						},
+						{
+							"name": "delete feedback category",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-COVID-SESSION",
+										"type": "text",
+										"value": "{{session}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"feedbackCateId\" : [\"1\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/feedback/category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"feedback",
+										"category"
+									]
+								},
+								"description": "critical point (level) : 1-10"
+							},
+							"response": []
+						},
+						{
+							"name": "get feedback category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-COVID-SESSION",
+										"type": "text",
+										"value": "{{session}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/feedback/category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"feedback",
+										"category"
+									]
+								},
+								"description": "critical point (level) : 1-10"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Result",
+			"item": [
+				{
+					"name": "add result",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"memberId\" : \"1\",\n\t\"periodId\" : \"00\",\n\t\"remark\" : \" ทำงานอยู่บ้าน\",\n\t\"latitude\" : \"18.789421\",\n\t\"longitude\" : \"98.962765\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/result",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"result"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit result",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"resultId\" : \"5\", \n\t\"temperature\" : \"36.4\",\n\t\"diseaseArr\" : [\n\t\t{ \"diseaseId\" : \"1\" },\n\t\t{ \"diseaseId\" : \"3\" }\n\t],\n\t\"remark\" : \"พักอยู่ที่หอพัก อาหารดีขึ้น\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/result",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"result"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete result",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"resultId\" : [\"72\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/result",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"result"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get result",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/result?memberId=&resultId=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"result"
+							],
+							"query": [
+								{
+									"key": "memberId",
+									"value": ""
+								},
+								{
+									"key": "resultId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my result",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/result/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"result",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my result history",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/result/me/history?month=4&year=2020",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"result",
+								"me",
+								"history"
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "4"
+								},
+								{
+									"key": "year",
+									"value": "2020"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my month & now result",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/result/me/month",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"result",
+								"me",
+								"month"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Feedback",
+			"item": [
+				{
+					"name": "add feedback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"topic\" : \"เข้าใช้งานไม่ได้\",\n\t\"feedbackCateId\" : \"1\",\n\t\"contact\" : \"0918694999\",\n\t\"description\" : \"กลับมาหน้า login เหมือนเดิม\",\n\t\"imageArr\" : \n\t[\n\t\t{ \"filename\" : \"5cce41ecbd28f34a615ea379e8b96d2c.jpg\" , \"list\" : \"1\" }\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/feedback",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feedback"
+							]
+						},
+						"description": "critical point (level) : 1-10"
+					},
+					"response": []
+				},
+				{
+					"name": "edit feedback",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"feedbackId\" : \"1\",\n\t\"topic\" : \"เข้าใช้งานไม่ได้ อีกแล้ว\",\n\t\"feedbackCateId\" : \"1\",\n\t\"contact\" : \"0918694999\",\n\t\"description\" : \"กลับมาหน้า login เหมือนเดิมเรย\",\n\t\"imageArr\" : \n\t[\n\t\t{ \"filename\" : \"18c242efbc4d8abee1dcf28656c9ec3f.jpg\" , \"list\" : \"1\" },\n\t\t{\"filename\" : \"5cce41ecbd28f34a615ea379e8b96d2c.jpg\", \"list\" : \"2\"}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/feedback",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feedback"
+							]
+						},
+						"description": "critical point (level) : 1-10"
+					},
+					"response": []
+				},
+				{
+					"name": "delete feedback",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"feedbackId\" : [\"1\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/feedback",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feedback"
+							]
+						},
+						"description": "critical point (level) : 1-10"
+					},
+					"response": []
+				},
+				{
+					"name": "get feedback",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WFH-SESSION",
+								"type": "text",
+								"value": "{{session}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/feedback?feedbackId=&feedbackCateId=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feedback"
+							],
+							"query": [
+								{
+									"key": "feedbackId",
+									"value": ""
+								},
+								{
+									"key": "feedbackCateId",
+									"value": ""
+								}
+							]
+						},
+						"description": "critical point (level) : 1-10"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
