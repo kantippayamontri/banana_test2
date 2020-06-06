@@ -1,8 +1,11 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:test2/bloc/blocs/loginbloc.dart';
 import 'package:test2/bloc/events/loginevent.dart';
+import 'package:test2/bloc/states/loginstate.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -162,7 +165,9 @@ class _LoginPageState extends State<LoginPage> {
                         'Powered by',
                         style: TextStyle(color: Colors.white),
                       ),
-                      SizedBox(height: 5,),
+                      SizedBox(
+                        height: 5,
+                      ),
                       Image(
                         height: _phoneheight * 0.05,
                         image: AssetImage(
@@ -173,6 +178,21 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
+            BlocBuilder(
+              bloc: _loginBloc,
+              builder: (BuildContext context, state) {
+                if (state is LoginLoadingState) {
+                  
+                  
+                }
+
+                // if(state is LoginSuccessState){
+                //   return Center(child: ,)
+                // }
+
+                return SizedBox();
+              },
+            )
           ],
         ),
       ),
