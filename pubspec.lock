@@ -36,6 +36,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  buddhist_datetime_dateformat:
+    dependency: "direct main"
+    description:
+      name: buddhist_datetime_dateformat
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.6"
   charcode:
     dependency: transitive
     description:
@@ -123,6 +130,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.12"
+  intl:
+    dependency: "direct main"
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.16.1"
   loading:
     dependency: "direct main"
     description:

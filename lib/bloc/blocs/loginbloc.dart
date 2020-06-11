@@ -33,6 +33,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             }));
     if (response.statusCode == 200) {
       print("login success!!!");
+      print(response.body);
       var jsonData = json.decode(response.body);
       User users = User(
         age: jsonData["data"]['age'],

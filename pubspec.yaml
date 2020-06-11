@@ -29,6 +29,8 @@ dependencies:
   http: ^0.12.1
   loading: ^1.0.2
   progress_dialog: ^1.2.0
+  intl: ^0.16.1
+  buddhist_datetime_dateformat: ^1.0.6
 
 
   # The following adds the Cupertino Icons font to your application.

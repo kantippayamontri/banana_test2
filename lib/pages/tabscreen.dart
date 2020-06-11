@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test2/datamanager/datamanager.dart';
+import 'package:test2/pages/newspage.dart';
+import 'package:test2/pages/profilepage.dart';
+import 'package:test2/pages/workpage.dart';
 
 class TabScreen extends StatefulWidget {
   @override
@@ -7,14 +10,84 @@ class TabScreen extends StatefulWidget {
 }
 
 class _TabScreenState extends State<TabScreen> {
+  int _currentIndex = 0;
+  final tabs = [NewsPage(), WorkPage(), ProfilePage()];
+  AppBar _appbar = AppBar();
   @override
   Widget build(BuildContext context) {
+    final double phone_height = MediaQuery.of(context).size.height;
+    final double phone_width = MediaQuery.of(context).size.width;
+    final double appbar_height = AppBar().preferredSize.height;
     return Scaffold(
-      body: Center(
-        child: Text(
-          "Tabscreen Page ${Datamanager.user.email}",
-          style: TextStyle(fontSize: 86),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Image(
+              height: appbar_height * 0.6,
+              width: appbar_height * 0.6,
+              image: AssetImage('assets/images/mainicon.png'),
+              fit: BoxFit.cover,
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Container(
+              width: 1,
+              height: appbar_height * 0.6,
+              color: Colors.grey,
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FittedBox(
+                    fit: BoxFit.fitHeight,
+                    child: Text(
+                      "Work",
+                      style: TextStyle(fontSize: 18),
+                    )),
+                FittedBox(
+                    fit: BoxFit.fitHeight,
+                    child: Text(
+                      "From Home",
+                      style: TextStyle(fontSize: 12),
+                    ))
+              ],
+            ),
+          ],
         ),
+      ),
+      body: tabs[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        type: BottomNavigationBarType.fixed,
+        elevation: 100,
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.purple,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text("News"),
+              backgroundColor: Colors.purple),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.book),
+              title: Text("Work"),
+              backgroundColor: Colors.purple),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.people),
+              title: Text("profile"),
+              backgroundColor: Colors.purple),
+        ],
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
     );
   }
