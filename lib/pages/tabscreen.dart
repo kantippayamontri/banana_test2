@@ -15,8 +15,6 @@ class _TabScreenState extends State<TabScreen> {
   AppBar _appbar = AppBar();
   @override
   Widget build(BuildContext context) {
-    final double phone_height = MediaQuery.of(context).size.height;
-    final double phone_width = MediaQuery.of(context).size.width;
     final double appbar_height = AppBar().preferredSize.height;
     return Scaffold(
       appBar: AppBar(
@@ -71,16 +69,17 @@ class _TabScreenState extends State<TabScreen> {
         selectedItemColor: Colors.purple,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text("News"),
+            title: Text(""),
+            backgroundColor: Colors.purple,
+            icon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+              title: Text(""),
+              icon: Icon(Icons.hotel),
               backgroundColor: Colors.purple),
           BottomNavigationBarItem(
-              icon: Icon(Icons.book),
-              title: Text("Work"),
-              backgroundColor: Colors.purple),
-          BottomNavigationBarItem(
+              title: Text(""),
               icon: Icon(Icons.people),
-              title: Text("profile"),
               backgroundColor: Colors.purple),
         ],
         onTap: (index) {

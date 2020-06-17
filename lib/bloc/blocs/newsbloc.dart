@@ -7,7 +7,6 @@ import 'package:test2/model/uppernews.dart';
 import 'package:buddhist_datetime_dateformat/buddhist_datetime_dateformat.dart';
 
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
-
   Function setstate;
   BuildContext context;
   UpperNews upperNews;
@@ -117,9 +116,8 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         break;
     }
 
-    temp += startdate.year.toString();
+    temp += " " + (startdate.year + 543).toString();
     return temp;
-    
   }
 
   @override
