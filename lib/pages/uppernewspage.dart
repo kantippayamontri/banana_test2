@@ -74,7 +74,10 @@ class _UpperNewsPageState extends State<UpperNewsPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Text(_day),
+                  Text(
+                    _day,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ],
               ),
               SizedBox(
@@ -82,17 +85,94 @@ class _UpperNewsPageState extends State<UpperNewsPage> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[Text("dfasdfsdf"), Text("rrrrrrrrrr")],
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Container(
+                        height: 20,
+                        width: 20,
+                        child: Tab(
+                          icon:
+                              Image.asset("assets/images/icon_news_source.png"),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "dfasdfsdf",
+                        style: TextStyle(fontSize: 20, color: Colors.purple),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        height: 20,
+                        width: 20,
+                        child: Tab(
+                          icon: Image.asset("assets/images/icon_news_view.png"),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "10.5k",
+                        style: TextStyle(fontSize: 20, color: Colors.purple),
+                      ),
+                    ],
+                  )
+                ],
               ),
               SizedBox(
-                height: _phoneheigth * 0.01,
+                height: _phoneheigth * 0.02,
               ),
               Text(
-                  "sdfsdfadfasdfasdfsadfsdfasdfsdfasdfasdfasdfsadfsadfasdfsdsdfsdfadfasdfasdfsadfsdfasdfsdfasdfasdfasdfsadfsadfasdfsd"),
+                  _uppernew.descriptionTH),
               SizedBox(
                 height: _phoneheigth * 0.04,
               ),
-              Text("tytytytyttytytytytytytyty")
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    height: _phoneheigth * 0.05,
+                    width: _phonewidth * 0.5,
+                    padding: EdgeInsets.only(top: 3, bottom: 3, left: 5, right: 5),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.purple)),
+                    child: Center(
+                      child: Row(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Container(
+                            height: 15,
+                            width: 15,
+                            child: Tab(
+                              icon: Image.asset("assets/images/icon_news_link.png"),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          FittedBox(
+                            fit: BoxFit.fitWidth,
+                            child: Text(
+                              _uppernew.link.substring(0,29),
+                              style: TextStyle(color: Colors.purple),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),

@@ -26,26 +26,54 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    height: _phoneheigth * 0.3,
-                    width: _phonewidth * 0.5,
-                    child: Card(
-                      elevation: 10,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Center(
-                          child: Datamanager.user.image == ""
-                              ? Image(
-                                  image:
-                                      AssetImage('assets/images/mainicon.png'),
-                                  fit: BoxFit.cover,
-                                )
-                              : Image.network(
-                                  Datamanager.user.image,
+                      height: _phoneheigth * 0.3,
+                      width: _phonewidth * 0.5,
+                      child: Stack(
+                        children: <Widget>[
+                          Card(
+                            elevation: 10,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Center(
+                                child: Datamanager.user.image == ""
+                                    ? Image(
+                                        image: AssetImage(
+                                            'assets/images/mainicon.png'),
+                                        fit: BoxFit.cover,
+                                      )
+                                    : Image.network(
+                                        Datamanager.user.image,
+                                      ),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Positioned(
+                              right: 20,
+                              child: Container(
+                                height: _phoneheigth * 0.07,
+                                width: _phoneheigth * 0.07,
+                                child: Card(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: LayoutBuilder(
+                                      builder: (context, constraint) {
+                                        return Center(
+                                          child: Icon(
+                                            Icons.camera_alt,
+                                            size: constraint.maxHeight,
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
                                 ),
-                        ),
-                      ),
-                    ),
-                  ),
+                              ),
+                            ),
+                          )
+                        ],
+                      )),
                 ],
               ),
               SizedBox(
@@ -75,7 +103,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 thickness: 2,
                 color: Colors.grey[200],
               ),
-              SizedBox(height: 5,),
+              SizedBox(
+                height: 5,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -100,7 +130,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 thickness: 2,
                 color: Colors.grey[200],
               ),
-              SizedBox(height: 5,),
+              SizedBox(
+                height: 5,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -125,7 +157,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 thickness: 2,
                 color: Colors.grey[200],
               ),
-              SizedBox(height: 5,),
+              SizedBox(
+                height: 5,
+              ),
             ],
           ),
         ),
